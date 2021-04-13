@@ -1,9 +1,12 @@
+import Nav from '../Nav/Nav';
+
 function Bio() {
 
 
   return(<>
-  <div>Bio</div>
-  
+  <Nav />
+        <img src="self.jpg" /> 
+        
   
   
   </>)
