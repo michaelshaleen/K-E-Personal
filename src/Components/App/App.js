@@ -5,6 +5,7 @@ import './App.css';
 import Landing from '../LandingPage/Landing';
 import Contact from '../Contact/Contact';
 import Education from '../Education/Education';
+import Bio from '../Bio/Bio';
 
 
 
@@ -16,6 +17,9 @@ function App() {
       <Route path="/" exact component={Landing} />
       <Route path="/contact" exact component={Contact} />
       <Route path="/education" exact component={Education} />
+      <Route path="/bio" exact component={Bio} />
+
+      
 
 
 
