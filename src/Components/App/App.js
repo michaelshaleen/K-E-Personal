@@ -6,6 +6,7 @@ import Landing from '../LandingPage/Landing';
 import Contact from '../Contact/Contact';
 import Education from '../Education/Education';
 import Bio from '../Bio/Bio';
+import Nav from '../Nav/Nav';
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/contact" exact component={Contact} />
       <Route path="/education" exact component={Education} />
       <Route path="/bio" exact component={Bio} />
+
 
       
 

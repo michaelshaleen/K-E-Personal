@@ -6,8 +6,9 @@ function Landing() {
   return(<>
 
   <div className="hero-container">
-      {/* <video src="/nature.mp4" autoPlay loop muted style={{width:"100%"}}/> */}
-      <h1>Let's achieve something</h1>
+      <video src="/stretch.mp4" autoPlay loop muted style={{width:"100%"}}/>
+      {/* <img src="self.jpg" />  */}
+           <h1>Let's achieve something</h1>
       <div className="hero-btns">
         <Button 
           className="btns" 
