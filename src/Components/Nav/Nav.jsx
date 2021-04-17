@@ -2,103 +2,57 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import './Nav.css';
-
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import { Info } from './Info';
 
 function Nav() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const showButton = () => {
-    if(window.innerWidth <= 960 ){
-      setButton(false);
-    }else{
-      setButton(true);
-    }
-  };
-
-
-  useEffect(() => {
-    showButton()
-
-  }, []);
-
-  window.addEventListener('resize', showButton);
+  const[sidebar, setSideBar] = useState(false);
 
 
 
+
+
+  const showSideBar = () => setSideBar(!sidebar);
+
+ 
+
+
+
+  
  
 
   return(
     <>
-    <div className="menu-icon" onClick={handleClick}>
-      <i className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
-    </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}></ul>
+    <div className="navbar">
+      <Link to="#" className="menu-bars">
+        <FaIcons.FaBars onClick={showSideBar}/>
 
-       
-    
-    <nav className="sidebar">
-      <div className="text">Side Menu</div>
-      <div className="menu">
-      <ul>
-        <li>
-          <a href="/contact">Contact</a>
-        </li>
-        <li>
-          <a href="#" className="feat-btn">Features
-            <span className="fas fa-caret-down first"></span> 
-          </a>
-          <ul className="feat-show">
-            <li>
-              <a href="#">Pages</a>
-            </li>
-            <li>
-              <a href="#">Elements</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#" className="serv-btn">Services
-          <span className="fas fa-caret-down second"></span> 
-          </a>
-          <ul>
-            <li>
-              <a href="#">App Design</a>
-            </li>
-            <li>
-              <a href="#">Web Design</a>
-            </li>
-          </ul>
-        </li>
-            <li>
-              <a href="#">Portfolio</a>
-            </li> 
-            <li>
-              <a href="#">Overview</a>
-            </li>
-             <li>
-              <a href="#">Shortcuts</a>
-            </li> 
-            <li>
-              <a href="#">Feedback</a>
-            </li>
-      </ul>
+      </Link>
     </div>
+    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+      <ul className="nav-menu-items" onClick={showSideBar}>
+        <li className="navbar-toggle">
+          <Link to="#" className="menu-bars">
+            <AiIcons.AiOutlineClose />
+          </Link>
+        </li>
+        {Info.map((item, index) => {
+          return(
+            <li key={index} className={item.cName}>
+              <Link to={item.path}>
+                {item.icon}
+                <span>{item.title}</span>
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
     </nav>
 
-
-  
-
-
-
-
-
-
-
+    
     </>
   )
 }
