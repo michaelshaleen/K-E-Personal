@@ -2,6 +2,8 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import React from 'react'
 import * as IoIcons from "react-icons/io";
+import * as RiIcons from "react-icons/ri";
+
 
 
 export const Info = [
@@ -13,27 +15,22 @@ export const Info = [
     cName: 'nav-text'
   },
   {
-    title: 'Home',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
+    title: 'My Story',
+    path: '/bio',
+    icon: <IoIcons.IoIosPerson />,
     cName: 'nav-text'
   }, 
   {
-    title: 'Home',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
+    title: 'Contact Me',
+    path: '/contact',
+    icon: <AiIcons.AiOutlineMail />,
     cName: 'nav-text'
   }, 
   {
-    title: 'Home',
+    title: 'Care',
     path: '/',
-    icon: <AiIcons.AiFillHome />,
+    icon: <RiIcons.RiMentalHealthLine/>,
     cName: 'nav-text'
   }, 
-  {
-    title: 'Home',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
+  
 ]
