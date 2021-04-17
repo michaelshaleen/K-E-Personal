@@ -2,65 +2,57 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import './Nav.css';
-
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import { Info } from './Info';
 
 function Nav() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const showButton = () => {
-    if(window.innerWidth <= 960 ){
-      setButton(false);
-    }else{
-      setButton(true);
-    }
-  };
-
-
-  useEffect(() => {
-    showButton()
-
-  }, []);
-
-  window.addEventListener('resize', showButton);
+  const[sidebar, setSideBar] = useState(false);
 
 
 
+
+
+  const showSideBar = () => setSideBar(!sidebar);
+
+ 
+
+
+
+  
  
 
   return(
     <>
-    <nav className="navbar">
-      <span className="open-slide">
-        <a href="#">
-          <svg width="30" height="30">
-            <path d="M0,5 30,5" stroke="#000"
-              strokeWidth="5"/>
-            <path d="M0,14 30,14" stroke="#000"
-              strokeWidth="5"/> 
-            <path d="M0,23 30,23" stroke="#000"
-              strokeWidth="5"/>
-          </svg>
-        </a>
-      </span>
-      <ul className="navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+    <div className="navbar">
+      <Link to="#" className="menu-bars">
+        <FaIcons.FaBars onClick={showSideBar}/>
 
-
-
+      </Link>
+    </div>
+    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+      <ul className="nav-menu-items" onClick={showSideBar}>
+        <li className="navbar-toggle">
+          <Link to="#" className="menu-bars">
+            <AiIcons.AiOutlineClose />
+          </Link>
+        </li>
+        {Info.map((item, index) => {
+          return(
+            <li key={index} className={item.cName}>
+              <Link to={item.path}>
+                {item.icon}
+                <span>{item.title}</span>
+              </Link>
+            </li>
+          )
+        })}
       </ul>
     </nav>
+
     
-
-
-
     </>
   )
 }
