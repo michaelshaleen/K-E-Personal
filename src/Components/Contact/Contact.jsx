@@ -2,7 +2,8 @@ function Contact() {
 
 
   return(<>
-  <div>Contact Form</div>
+  <div
+    style={{color: 'red'}}>Contact Form</div>
   
   
   

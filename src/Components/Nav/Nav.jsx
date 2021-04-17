@@ -46,7 +46,7 @@ function Nav() {
       <div className="menu">
       <ul>
         <li>
-          <a href="#">Dashboard</a>
+          <a href="/contact">Contact</a>
         </li>
         <li>
           <a href="#" className="feat-btn">Features
